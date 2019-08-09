@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:background="@drawable/dialog_shape"
+              android:orientation="vertical">
+
+    <!-- 标题 -->
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="19sp" />
+
+
+    <!-- 内容 -->
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="20dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lineSpacingExtra="3dp"
+        android:maxHeight="300dp"
+        android:scrollbars="vertical"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#eee" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_button_left"
+            android:text=""
+            android:textColor="#FF6601"
+            android:textSize="13sp" />
+
+        <View
+            android:id="@+id/button_devide_line"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#f7f7f7" />
+
+        <Button
+            android:id="@+id/btn_right"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_button_right"
+            android:text=""
+            android:textColor="#FF6601"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+</LinearLayout>
