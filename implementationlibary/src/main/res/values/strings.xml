@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ImplementationLibary</string>
+    <string name="iv_icon">iv_icon</string>
+    <string name="view_line">view_line</string>
 </resources>

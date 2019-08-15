@@ -25,7 +25,31 @@ public class CustomDialog extends Dialog {
         super(context, themeResId);
     }
 
-    public static class Builder {
+    /** 点击事件接口 */
+    public interface OnCustomClickedListener {
+
+        /**
+         * 确定监听器
+         *
+         * @param dialog dialog
+         */
+        void onPositiveButtonClicked(CustomDialog dialog);
+
+        /**
+         * 取消监听器
+         *
+         * @param dialog dialog
+         */
+        void onNegativeButtonClicked(CustomDialog dialog);
+    }
+
+    /** message对齐方式枚举 */
+    public enum Gravity_Message {/*居中*/
+        CENTER, /*左对齐*/
+        LEFT, /*右对齐*/
+        RIGHT}
+
+    static class Builder {
 
         private Context context;
         private String title;
@@ -48,8 +72,8 @@ public class CustomDialog extends Dialog {
          * @param negativeButtonText      取消按钮文本
          * @param onCustomClickedListener 监听器
          */
-        public Builder(Context context, Boolean canceledOnTouchOutside, Boolean cancelable, String title,
-                String message,@NonNull Gravity_Message gravity, String positiveButtonText, String negativeButtonText,
+        Builder(Context context, Boolean canceledOnTouchOutside, Boolean cancelable, String title, String message,
+                @NonNull Gravity_Message gravity, String positiveButtonText, String negativeButtonText,
                 OnCustomClickedListener onCustomClickedListener) {
             super();
             this.context = context;
@@ -65,7 +89,7 @@ public class CustomDialog extends Dialog {
             this.onCustomClickedListener = onCustomClickedListener;
         }
 
-        public CustomDialog create() {
+        CustomDialog create() {
             final CustomDialog dialog = new CustomDialog(context, R.style.TwoButtonDialog);
             dialog.setCanceledOnTouchOutside(canceledOnTouchOutside);
             dialog.setCancelable(cancelable);
@@ -147,23 +171,5 @@ public class CustomDialog extends Dialog {
 
             return dialog;
         }
-    }
-
-    /** message对齐方式枚举 */
-    public enum Gravity_Message {
-        /*居中*/
-        CENTER,
-        /*左对齐*/
-        LEFT,
-        /*右对齐*/
-        RIGHT
-    }
-
-    /** 点击事件接口 */
-    public interface OnCustomClickedListener {
-
-        void onPositiveButtonClicked(CustomDialog dialog);
-
-        void onNegativeButtonClicked(CustomDialog dialog);
     }
 }
