@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DialogOption.with(MainActivity.this)
-                            .title("标题")
                             .canCancel(false)
                             .create()
                             .show();

@@ -18,6 +18,13 @@ import android.widget.TextView;
  */
 public class DialogOption extends Dialog {
 
+    @Override
+    public void show() {
+        if (noEmpty) {
+            super.show();
+        }
+    }
+
     private static ConcreteBuilder builder;
     private TextView tvTitle;
     private ImageView ivIcon;
@@ -26,6 +33,8 @@ public class DialogOption extends Dialog {
     private TextView tvButtonRight;
     private ImageView viewLine;
     private LinearLayout llButton;
+    private LinearLayout llText;
+    public Boolean noEmpty = false;
 
     private DialogOption(DialogParams p) {
         //设置没有标题的Dialog风格
@@ -42,6 +51,7 @@ public class DialogOption extends Dialog {
         tvButtonRight = contentView.findViewById(R.id.tv_button_right);
         viewLine = contentView.findViewById(R.id.view_line);
         llButton = contentView.findViewById(R.id.ll_button);
+        llText = contentView.findViewById(R.id.ll_text);
 
         //控件默认隐藏
         tvTitle.setVisibility(View.GONE);
@@ -51,6 +61,7 @@ public class DialogOption extends Dialog {
         tvButtonLeft.setVisibility(View.GONE);
         tvButtonRight.setVisibility(View.GONE);
         llButton.setVisibility(View.GONE);
+        llText.setVisibility(View.GONE);
         //构建Dialog
         setTitleText(p.title);
         setTitleTextSize(p.titleSizeSp);
@@ -77,6 +88,8 @@ public class DialogOption extends Dialog {
         }
         tvTitle.setVisibility(View.VISIBLE);
         tvTitle.setText(title);
+        llText.setVisibility(View.VISIBLE);
+        noEmpty = true;
     }
 
     /**
@@ -101,7 +114,9 @@ public class DialogOption extends Dialog {
             return;
         }
         ivIcon.setVisibility(View.VISIBLE);
+        llText.setVisibility(View.VISIBLE);
         ivIcon.setImageResource(imageResource);
+        noEmpty = true;
     }
 
     /**
@@ -142,6 +157,8 @@ public class DialogOption extends Dialog {
             return;
         }
         tvMessage.setVisibility(View.VISIBLE);
+        llText.setVisibility(View.VISIBLE);
+        noEmpty = true;
         tvMessage.setText(text);
     }
 
@@ -166,6 +183,7 @@ public class DialogOption extends Dialog {
         //有Button时显示底部Button布局
         tvButtonLeft.setVisibility(View.VISIBLE);
         llButton.setVisibility(View.VISIBLE);
+        noEmpty = true;
         tvButtonLeft.setText(text);
         tvButtonLeft.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -202,6 +220,7 @@ public class DialogOption extends Dialog {
         viewLine.setVisibility(View.VISIBLE);
         tvButtonRight.setVisibility(View.VISIBLE);
         llButton.setVisibility(View.VISIBLE);
+        noEmpty = true;
         tvButtonRight.setText(text);
         tvButtonRight.setOnClickListener(new View.OnClickListener() {
             @Override
