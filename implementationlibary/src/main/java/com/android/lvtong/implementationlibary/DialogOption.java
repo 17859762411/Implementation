@@ -34,7 +34,7 @@ public class DialogOption extends Dialog {
     private ImageView viewLine;
     private LinearLayout llButton;
     private LinearLayout llText;
-    public Boolean noEmpty = false;
+    private Boolean noEmpty = false;
 
     private DialogOption(DialogParams p) {
         //设置没有标题的Dialog风格
