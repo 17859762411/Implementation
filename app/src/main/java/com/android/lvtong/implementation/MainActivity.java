@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.android.lvtong.implementationlibary.CustomDialog;
 import com.android.lvtong.implementationlibary.DialogOption;
 import com.android.lvtong.implementationlibary.DialogUtil;
+import com.android.lvtong.implementationlibary.ToastUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
  * @author 22939
  */
 public class MainActivity extends AppCompatActivity {
+
+    private int num = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
                             .canCancel(false)
                             .create()
                             .show();
+            }
+        });
+        findViewById(R.id.btn_toast).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num++;
+                ToastUtils.showShort(MainActivity.this, "第" + num + "次点击");
             }
         });
     }
